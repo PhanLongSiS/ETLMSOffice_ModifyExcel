@@ -9,6 +9,7 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Excel = Microsoft.Office.Interop.Excel;
 //using Excel = Microsoft.Office.Interop.Excel;       //Khong su dung nua, do da lien ket động
 
 namespace ModifyExcel
@@ -58,7 +59,7 @@ namespace ModifyExcel
 
             if (!File.Exists(JsonFile))
             {
-                errMsg = "File " + JsonFile + " không tôn tại \n. Thư mục hiện thời: " + Directory.GetCurrentDirectory() + "\n. Xem file demo.json để biết cấu trúc đầu vào";
+                errMsg = "File " + JsonFile + " không tôn tại";
                 json = "";
 
             }
@@ -70,7 +71,7 @@ namespace ModifyExcel
             ExcelTemplateFileName = Directory.GetCurrentDirectory() + "\\" + ExcelTemplateFileName;
             if (!File.Exists(ExcelTemplateFileName))
             {
-                errMsg = "File " + ExcelTemplateFileName + " không tôn tại \n. Thư mục hiện thời: " + Directory.GetCurrentDirectory() + "\n. Xem file demo.json để biết cấu trúc đầu vào";
+                errMsg = "File " + ExcelTemplateFileName + " không tôn tại";
                 json = "";
 
             }
@@ -81,7 +82,6 @@ namespace ModifyExcel
             Console.WriteLine("Version 2.0");
             Console.WriteLine(errMsg);
             Debug.WriteLine(errMsg);
-            Console.ReadKey();
             return 0;
         }
 
@@ -151,8 +151,7 @@ namespace ModifyExcel
             /// Tạo các biến thuộc kiểu dữ liệu liên kết động ở thư viện  Interop Excel. Thế là xong. Mọi việc lại diễn ra bình thường
             dynamic MyBook = null;
             dynamic MyApp = null;
-            dynamic MySheet = null;
-
+            Excel.Worksheet MySheet = null;
             try
             {
                 MyApp = Excel.Application();
@@ -235,7 +234,15 @@ namespace ModifyExcel
                 {
                     try
                     {
-                        MySheet.Cells[MyCellData.RowIndex, MyCellData.ColumnIndex].Value = MyCellData.value;
+                        if(string.IsNullOrEmpty(MyCellData.pos))
+                        {
+                            var cell = MySheet.get_Range(MyCellData.posname, MyCellData.posname);
+                            MySheet.Cells[cell.Row, cell.Column].Value = MyCellData.value;
+                        }
+                        else
+                        {
+                            MySheet.Cells[MyCellData.RowIndex, MyCellData.ColumnIndex].Value = MyCellData.value;
+                        }
                     }
                     catch (Exception e)
                     {

@@ -1,4 +1,3 @@
-D:\DoAn\SMP_MSOfficeJson\ModifyExcel\obj\Debug\ModifyExcel.csproj.AssemblyReference.cache
 D:\DoAn\SMP_MSOfficeJson\ModifyExcel\obj\Debug\ModifyExcel.csproj.SuggestedBindingRedirects.cache
 D:\DoAn\SMP_MSOfficeJson\ModifyExcel\obj\Debug\ModifyExcel.csproj.CoreCompileInputs.cache
 D:\DoAn\SMP_MSOfficeJson\ModifyExcel\bin\Debug\ModifyExcel.exe.config
@@ -11,3 +10,4 @@ D:\DoAn\SMP_MSOfficeJson\ModifyExcel\bin\Debug\Newtonsoft.Json.xml
 D:\DoAn\SMP_MSOfficeJson\ModifyExcel\obj\Debug\ModifyExcel.csproj.CopyComplete
 D:\DoAn\SMP_MSOfficeJson\ModifyExcel\obj\Debug\ModifyExcel.exe
 D:\DoAn\SMP_MSOfficeJson\ModifyExcel\obj\Debug\ModifyExcel.pdb
+D:\DoAn\SMP_MSOfficeJson\ModifyExcel\obj\Debug\ModifyExcel.csproj.AssemblyReference.cache

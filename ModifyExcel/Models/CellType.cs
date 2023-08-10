@@ -36,6 +36,7 @@ namespace ModifyExcel.Models
         /// <summary> Dữ liệu của cell </summary>
         [JsonProperty]
         public object value;
+        public string posname;
 
         /// <summary>
         ///      Hàm khởi tạo 
